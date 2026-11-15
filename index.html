@@ -19,13 +19,14 @@
 <div class="feature-grid">
 <article class="feature"><span class="symbol">💌</span><h3>بطاقات الشكر والامتنان</h3><p>اصنعي بطاقة شخصية لزميلة صنعت أثرًا جميلًا.</p><button data-start="thanks" type="button">تصميم بطاقة شكر</button></article>
 <article class="feature"><span class="symbol">🏆</span><h3>التهنئة بالإنجازات</h3><p>احتفي بنجاح زميلة أو فريق عمل برسالة أنيقة.</p><button data-start="congrats" type="button">تصميم بطاقة تهنئة</button></article>
+<article class="feature"><span class="symbol">🕊️</span><h3>اليوم العالمي للتسامح</h3><p>بطاقة بمناسبة 16 نوفمبر لتعزيز العفو والاحترام والتآلف.</p><button data-start="tolerance" type="button">تصميم بطاقة التسامح</button></article>
 <article class="feature"><span class="symbol">🤝</span><h3>بصمة تعاون وفكرة</h3><p>شاركي موقفًا إيجابيًا أو فكرة تسهم في تطوير بيئة العمل.</p><button data-go="ideas" type="button">إرسال مشاركة</button></article>
 <article class="feature"><span class="symbol">📊</span><h3>قياس أثر المبادرة</h3><p>شاركي رأيكِ لتطوير مبادرات الثقافة المؤسسية.</p><button data-go="survey" type="button">تعبئة الاستبيان</button></article>
 </div>
 </section>
 <section class="section" id="create"><div class="layout">
 <div class="panel editor"><h2>اصنعي بطاقة جميلة</h2><p class="sub">املئي البيانات واختاري التصميم، وستتحدث البطاقة أمامكِ مباشرة.</p>
-<div class="field"><label for="kind">نوع البطاقة</label><select id="kind"><option value="thanks">💚 شكر وامتنان</option><option value="congrats">🎉 تهنئة بإنجاز</option><option value="support">🤝 بصمة تعاون</option><option value="welcome">🌷 ترحيب وتقدير</option></select></div>
+<div class="field"><label for="kind">نوع البطاقة</label><select id="kind"><option value="thanks">💚 شكر وامتنان</option><option value="congrats">🎉 تهنئة بإنجاز</option><option value="support">🤝 بصمة تعاون</option><option value="welcome">🌷 ترحيب وتقدير</option><option value="tolerance">🕊️ اليوم العالمي للتسامح</option></select></div>
 <div class="field"><label>اختاري هوية البطاقة</label><div class="themes"><button aria-pressed="true" class="theme a" data-theme="a">🌿 زمردي</button><button aria-pressed="false" class="theme b" data-theme="b">🌸 وردي</button><button aria-pressed="false" class="theme c" data-theme="c">💠 سماوي</button></div></div>
 <div class="field"><label for="to">إلى الزميلة</label><input id="to" maxlength="60" placeholder="اسم الزميلة أو: إلى زميلتي الغالية" value="إلى زميلتي الغالية"/></div>
 <div class="field"><label for="message">نص البطاقة</label><textarea id="message" maxlength="420">لكِ مني كل الشكر والتقدير على تعاونكِ وعطائكِ الجميل. وجودكِ يصنع فرقًا، وأثركِ الطيب يبقى.</textarea><span class="count" id="count"></span></div>
@@ -56,7 +57,7 @@
 (()=>{
 const $=id=>document.getElementById(id),canvas=$('preview'),ctx=canvas.getContext('2d');let activeTheme='a';let timer;
 const palette={a:{bg:'#edf6ed',main:'#17654d',accent:'#c59b50',pale:'#d9eadd'},b:{bg:'#fff1f5',main:'#99546e',accent:'#cf9b8b',pale:'#f5dce6'},c:{bg:'#f0f5ff',main:'#3b628d',accent:'#d1a86a',pale:'#dce9f8'}};
-const kinds={thanks:{title:'رسالة شكر وامتنان',symbol:'♥',text:'لكِ مني كل الشكر والتقدير على تعاونكِ وعطائكِ الجميل. وجودكِ يصنع فرقًا، وأثركِ الطيب يبقى.'},congrats:{title:'تهنئة من القلب',symbol:'✦',text:'أبارك لكِ هذا الإنجاز الرائع. تستحقين كل الفخر والتقدير، وإلى مزيد من النجاح والتألق.'},support:{title:'بصمة تعاون',symbol:'❀',text:'شكرًا لروحكِ المتعاونة ومبادرتكِ الجميلة، فبالتكاتف نصنع بيئة عمل أجمل.'},welcome:{title:'تقدير ومحبة',symbol:'✧',text:'وجودكِ بيننا قيمة، وكلمتكِ الطيبة وأثركِ الإيجابي يجعلان أيام العمل أجمل.'}};
+const kinds={thanks:{title:'رسالة شكر وامتنان',symbol:'♥',text:'لكِ مني كل الشكر والتقدير على تعاونكِ وعطائكِ الجميل. وجودكِ يصنع فرقًا، وأثركِ الطيب يبقى.'},congrats:{title:'تهنئة من القلب',symbol:'✦',text:'أبارك لكِ هذا الإنجاز الرائع. تستحقين كل الفخر والتقدير، وإلى مزيد من النجاح والتألق.'},support:{title:'بصمة تعاون',symbol:'❀',text:'شكرًا لروحكِ المتعاونة ومبادرتكِ الجميلة، فبالتكاتف نصنع بيئة عمل أجمل.'},welcome:{title:'تقدير ومحبة',symbol:'✧',text:'وجودكِ بيننا قيمة، وكلمتكِ الطيبة وأثركِ الإيجابي يجعلان أيام العمل أجمل.'},tolerance:{title:'اليوم العالمي للتسامح · 16 نوفمبر',symbol:'♡',text:'في اليوم العالمي للتسامح، لنجعل العفو خُلُقًا، والاحترام لغةً، والمحبة جسرًا يجمع قلوبنا. بتسامحنا تزهر بيئة عملنا ويظل أثرنا طيبًا.'}};
 function toast(msg){$('toast').textContent=msg;$('toast').classList.add('show');clearTimeout(timer);timer=setTimeout(()=>$('toast').classList.remove('show'),3500)}
 function tab(id){document.querySelectorAll('.tab').forEach(b=>{let yes=b.dataset.tab===id;b.classList.toggle('active',yes);b.setAttribute('aria-selected',String(yes))});document.querySelectorAll('.section').forEach(s=>s.classList.toggle('active',s.id===id));window.scrollTo({top:0,behavior:'smooth'})}
 document.querySelectorAll('.tab').forEach(b=>b.addEventListener('click',()=>tab(b.dataset.tab)));
